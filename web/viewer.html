@@ -35,10 +35,41 @@ See https://github.com/adobe-type-tools/cmap-resources
 <script src="../build/pdf.js"></script>
 
   <script src="viewer.js"></script>
-
+    <script>
+    window.onkeydown = window.onkeyup = window.onkeypress = function (event) {
+            event.preventDefault(); // 阻止默认事件行为
+            window.event.returnValue = false;
+    }
+    </script>
+    <script>
+    function onBodyLoad()
+    {
+        var appConfig = PDFViewerApplication.appConfig;
+        appConfig.toolbar.viewBookmark.setAttribute('hidden', 'true');
+       appConfig.secondaryToolbar.viewBookmarkButton.setAttribute('hidden', 'true');
+        appConfig.toolbar.openFile.setAttribute('hidden', 'true');
+        appConfig.secondaryToolbar.openFileButton.setAttribute('hidden', 'true');
+        appConfig.toolbar.download.setAttribute('hidden', 'true');
+        appConfig.secondaryToolbar.downloadButton.setAttribute('hidden', 'true');
+        appConfig.toolbar.print.setAttribute('hidden', 'true');
+        appConfig.secondaryToolbar.printButton.setAttribute('hidden', 'true');
+    }
+    </script>
+    <script type="text/javascript">
+    	// 禁止右键菜单
+    	document.oncontextmenu = function(){ return false; };
+    	// 禁止文字选择
+    	document.onselectstart = function(){ return false; };
+    	// 禁止复制
+    	document.oncopy = function(){ return false; };
+    	// 禁止剪切
+    	document.oncut = function(){ return false; };
+    	// 禁止粘贴
+    	document.onpaste = function(){ return false; };
+    </script>
   </head>
 
-  <body tabindex="1">
+  <body tabindex="1" onload="onBodyLoad()">
     <div id="outerContainer">
 
       <div id="sidebarContainer">

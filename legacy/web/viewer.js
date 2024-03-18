@@ -3238,9 +3238,9 @@ const PDFViewerApplication = {
 
     eventBus._on("switchannotationeditorparams", webViewerSwitchAnnotationEditorParams);
 
-    eventBus._on("print", webViewerPrint);
+    /*eventBus._on("print", webViewerPrint);
 
-    eventBus._on("download", webViewerDownload);
+    eventBus._on("download", webViewerDownload);*/
 
     eventBus._on("firstpage", webViewerFirstPage);
 
